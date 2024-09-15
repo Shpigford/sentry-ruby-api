@@ -86,6 +86,15 @@ class SentryApi::Client
       get("/issues/#{issue_id}/events/oldest/")
     end
 
+    # Retrieves the details of the recommended event (the event with the most context)
+    #
+    # @example
+    #   SentryApi.recommended_event('120633628')
+    #
+    # @param issue_id [String] the ID of the issue to retrieve.
+    # @return [SentryApi::ObjectifiedHash]
+    def recommended_event(issue_id)
+      get("/issues/#{issue_id}/events/recommended/")
+    end
   end
-
 end
